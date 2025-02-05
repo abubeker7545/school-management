@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212011",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "assignment",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dueDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Assignment",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "subject",
+      "otherEntityRelationshipName": "assignments",
+      "relationshipName": "subject",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "submission",
+      "otherEntityRelationshipName": "assignment",
+      "relationshipName": "submission",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

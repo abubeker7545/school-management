@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212003",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "administrator",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Administrator",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "person",
+      "otherEntityRelationshipName": "administrator",
+      "ownerSide": true,
+      "relationshipName": "person",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "school",
+      "otherEntityRelationshipName": "administrators",
+      "relationshipName": "school",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "administrativeBoard",
+      "otherEntityRelationshipName": "administrators",
+      "ownerSide": false,
+      "relationshipName": "boards",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

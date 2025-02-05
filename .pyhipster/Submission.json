@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212021",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "submission",
+  "fields": [
+    {
+      "fieldName": "submissionDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "grade",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "feedback",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Submission",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "submission",
+      "relationshipName": "student",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "assignment",
+      "otherEntityRelationshipName": "submission",
+      "relationshipName": "assignment",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "quiz",
+      "otherEntityRelationshipName": "submission",
+      "relationshipName": "quiz",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

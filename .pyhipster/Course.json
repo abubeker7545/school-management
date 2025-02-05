@@ -1,0 +1,77 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212012",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "course",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creationDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Course",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "lesson",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "lessons",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "liveSession",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "liveSessions",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "courseEnrollment",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "enrollments",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "certification",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "certifications",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "announcement",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "announcements",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "teacher",
+      "otherEntityRelationshipName": "courses",
+      "relationshipName": "teacher",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "feedback",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "feedback",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

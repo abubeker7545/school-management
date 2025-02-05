@@ -1,0 +1,347 @@
+// Core Entities for School Management System
+
+entity Person {
+  username String required unique,
+  email String required unique,
+  password String required,
+  token String unique,
+  profilePicture String,
+  bio String
+}
+
+entity Role {
+  name String required unique,
+  description String
+}
+
+entity UserRole {
+  assignedDate String
+}
+
+entity Student {
+  name String required,
+  email String required unique,
+  parentContact String,
+  gradeLevel Integer
+}
+
+entity Teacher {
+  name String required,
+  email String required unique,
+  specialization String,
+  hoursPerWeek Integer,
+  maxHoursPerWeek Integer,
+  bio String,
+  profilePicture String
+}
+
+entity Administrator {
+  name String required,
+  email String required unique
+}
+
+entity School {
+  name String required unique,
+  address String maxlength(200),
+  establishedDate String,
+  contactEmail String
+}
+
+entity Subject {
+  name String required unique,
+  description String
+}
+
+entity Classroom {
+  name String required unique,
+  capacity Integer required min(1),
+  location String
+}
+
+entity ClassSession {
+  gradeLevel Integer required min(0),
+  dayOfWeek Integer required min(1) max(7),
+  startTime String required,
+  endTime String required
+}
+
+entity Attendance {
+  date String required,
+  status Boolean required
+}
+
+entity Exam {
+  title String required,
+  date String required,
+  maxScore Float required
+}
+
+entity Grade {
+  score Float required,
+  comments String
+}
+
+entity Assignment {
+  title String required,
+  dueDate String required,
+  description String
+}
+
+// Enhanced E-Learning System Entities
+
+entity Course {
+  title String required,
+  description String,
+  creationDate String required,
+  duration Integer
+}
+
+entity Lesson {
+  title String required,
+  content String,
+  order Integer required,
+  duration Integer required
+}
+
+entity VideoContent {
+  title String required,
+  videoUrl String required,
+  duration Integer required
+}
+
+entity Article {
+  title String required,
+  content String required,
+  author String
+}
+
+entity Resource {
+  title String required,
+  resourceUrl String required,
+  description String
+}
+
+entity LiveSession {
+  sessionTitle String required,
+  sessionDate String required,
+  duration Integer required,
+  meetingLink String required
+}
+
+entity Discussion {
+  title String required,
+  creationDate String required,
+  isClosed Boolean required
+}
+
+entity Comment {
+  content String required,
+  creationDate String required,
+  author String required
+}
+
+entity Quiz {
+  title String required,
+  totalQuestions Integer required,
+  maxScore Float required
+}
+
+entity Question {
+  text String required,
+  answerOptions String required,
+  correctAnswer String required,
+  points Float required
+}
+
+entity Submission {
+  submissionDate String required,
+  grade Float,
+  feedback String
+}
+
+entity CourseEnrollment {
+  enrollmentDate String required,
+  completionStatus Boolean required,
+  progress Float
+}
+
+entity Feedback {
+  content String required,
+  creationDate String required,
+  rating Integer required min(1) max(5)
+}
+
+// New Entities for Enhanced E-Learning Features
+
+entity Certification {
+  certificateName String required,
+  issueDate String required,
+  expirationDate String,
+  certificationUrl String
+}
+
+entity Announcement {
+  title String required,
+  content String required,
+  creationDate String required
+}
+
+// Entities for Branch Management and Administration
+
+entity Branch {
+  name String required unique,
+  address String maxlength(200),
+  contactEmail String required,
+  establishedDate String,
+  phone String,
+  manager String
+}
+
+entity AdministrativeBoard {
+  name String required unique,
+  description String,
+  creationDate String required,
+  boardHead String
+}
+
+entity BoardMember {
+  memberName String required,
+  position String required,
+  joiningDate String required
+}
+
+entity RoleAssignment {
+  roleType String required,
+  effectiveDate String required,
+  expirationDate String
+}
+
+// Payment Management Entities
+
+entity Payment {
+  paymentDate String required,
+  amount Double required min(0),
+  method String required,
+  description String,
+  status String required,
+  transactionId String unique
+}
+
+entity Invoice {
+  invoiceDate String required,
+  dueDate String required,
+  totalAmount Double required min(0),
+  status String required
+}
+
+entity SubscriptionPlan {
+  planName String required unique,
+  price Double required min(0),
+  durationMonths Integer required min(1),
+  description String
+}
+
+entity SubscriptionDSet {
+  startDate String required,
+  endDate String required,
+  status String required,
+  renewalDate String
+}
+
+entity Notification {
+  content String required,
+  dateSent String required,
+  isRead Boolean required
+}
+
+entity Message {
+  content String required,
+  timestamp String required,
+  sender String required,
+  receiver String required
+}
+
+entity ProgressReport {
+  reportDate String required,
+  progress Float required,
+  notes String
+}
+
+entity Recommendation {
+  recommendedCourses String,
+  recommendedResources String
+}
+
+entity Analytics {
+  totalCoursesCompleted Integer required,
+  totalAssignmentsSubmitted Integer required,
+  attendanceRate Float required,
+  averageGrade Float
+}
+
+// Relationships
+
+relationship ManyToMany {
+  UserRole{person} to Person,
+  UserRole{role} to Role,
+  AdministrativeBoard{administrators} to Administrator{boards}
+}
+
+relationship OneToMany {
+  School{branches} to Branch{school},
+  AdministrativeBoard{members} to BoardMember{board},
+  Branch{payments} to Payment{branch},
+  Branch{invoices} to Invoice{branch},
+  School{administrators} to Administrator{school},
+  School{teachers} to Teacher{school},
+  School{students} to Student{school},
+  Teacher{subjects} to Subject{teacher},
+  Teacher{courses} to Course{teacher},
+  Subject{exams} to Exam{subject},
+  Subject{assignments} to Assignment{subject},
+  ClassSession{classroom} to Classroom{classSessions},
+  Subject{classSessions} to ClassSession{subject},
+  Student{attendanceRecords} to Attendance{student},
+  ClassSession{attendanceRecords} to Attendance{classSession},
+  Student{grades} to Grade{student},
+  Exam{grades} to Grade{exam},
+  Course{lessons} to Lesson{course},
+  Lesson{videos} to VideoContent{lesson},
+  Lesson{articles} to Article{lesson},
+  Lesson{resources} to Resource{lesson},
+  Lesson{quizzes} to Quiz{lesson},
+  Course{liveSessions} to LiveSession{course},
+  Discussion{comments} to Comment{discussion},
+  Lesson{discussions} to Discussion{lesson},
+  Quiz{questions} to Question{quiz},
+  Course{enrollments} to CourseEnrollment{course},
+  Student{progressReports} to ProgressReport{student},
+  Course{certifications} to Certification{course},
+  Course{announcements} to Announcement{course},
+  Student{notifications} to Notification{student},
+  Teacher{notifications} to Notification{teacher},
+  Student{messages} to Message{student},
+  Teacher{messages} to Message{teacher},
+  Student{analytics} to Analytics{student},
+  Student{recommendations} to Recommendation{student},
+  Teacher{recommendations} to Recommendation{teacher}
+}
+
+relationship ManyToOne {
+  CourseEnrollment{student} to Student,
+  Submission{student} to Student,
+  Submission{assignment} to Assignment,
+  Submission{quiz} to Quiz,
+  Feedback{course} to Course,
+  Feedback{teacher} to Teacher,
+  Payment{invoice} to Invoice,
+  SubscriptionDSet{student} to Student,
+  SubscriptionPlan{subscriptions} to SubscriptionDSet,
+  Comment{student} to Student
+}
+
+relationship OneToOne {
+  Student{person} to Person,
+  Teacher{person} to Person,
+  Administrator{person} to Person
+}

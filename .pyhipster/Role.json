@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113211959",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "role",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Role",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "userRole",
+      "otherEntityRelationshipName": "role",
+      "ownerSide": false,
+      "relationshipName": "userRole",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

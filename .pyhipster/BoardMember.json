@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212028",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "board_member",
+  "fields": [
+    {
+      "fieldName": "memberName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "position",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "joiningDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "BoardMember",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "administrativeBoard",
+      "otherEntityRelationshipName": "members",
+      "relationshipName": "board",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

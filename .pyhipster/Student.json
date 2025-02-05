@@ -1,0 +1,114 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212001",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "student",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "parentContact",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gradeLevel",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Student",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "person",
+      "otherEntityRelationshipName": "student",
+      "ownerSide": true,
+      "relationshipName": "person",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "attendance",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "attendanceRecords",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "grade",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "grades",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "progressReport",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "progressReports",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "notifications",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "message",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "messages",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "analytics",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "analytics",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "recommendation",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "recommendations",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "school",
+      "otherEntityRelationshipName": "students",
+      "relationshipName": "school",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "courseEnrollment",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "courseEnrollment",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "submission",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "submission",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "subscriptionDSet",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "subscriptionDSet",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "comment",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "comment",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

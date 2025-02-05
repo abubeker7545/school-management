@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity AdministrativeBoard.
+    -->
+    <changeSet id="20241113212027-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="administrative_board_id"
+                                 baseTableName="rel_administrative_board__administrators"
+                                 constraintName="fk_rel_administrative_board__ad__administrative_board_21_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="administrative_board"/>
+
+        <addForeignKeyConstraint baseColumnNames="administrators_id"
+                                 baseTableName="rel_administrative_board__administrators"
+                                 constraintName="fk_rel_administrative_board__administrators__administrators_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="administrator"/>
+    </changeSet>
+</databaseChangeLog>

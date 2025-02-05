@@ -1,0 +1,37 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212037",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "recommendation",
+  "fields": [
+    {
+      "fieldName": "recommendedCourses",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "recommendedResources",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Recommendation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "recommendations",
+      "relationshipName": "student",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "teacher",
+      "otherEntityRelationshipName": "recommendations",
+      "relationshipName": "teacher",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

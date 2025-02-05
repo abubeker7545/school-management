@@ -1,0 +1,60 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212004",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "school",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "200"
+    },
+    {
+      "fieldName": "establishedDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactEmail",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "School",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "branch",
+      "otherEntityRelationshipName": "school",
+      "relationshipName": "branches",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "administrator",
+      "otherEntityRelationshipName": "school",
+      "relationshipName": "administrators",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "teacher",
+      "otherEntityRelationshipName": "school",
+      "relationshipName": "teachers",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "school",
+      "relationshipName": "students",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

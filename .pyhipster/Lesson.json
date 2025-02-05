@@ -1,0 +1,72 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212013",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "lesson",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "order",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Lesson",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "videoContent",
+      "otherEntityRelationshipName": "lesson",
+      "relationshipName": "videos",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "lesson",
+      "relationshipName": "articles",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "learningMaterial",
+      "otherEntityRelationshipName": "lesson",
+      "relationshipName": "learningMaterials",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "quiz",
+      "otherEntityRelationshipName": "lesson",
+      "relationshipName": "quizzes",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "discussion",
+      "otherEntityRelationshipName": "lesson",
+      "relationshipName": "discussions",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "course",
+      "otherEntityRelationshipName": "lessons",
+      "relationshipName": "course",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

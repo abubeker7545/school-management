@@ -1,0 +1,96 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212002",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "teacher",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "specialization",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hoursPerWeek",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxHoursPerWeek",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "bio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "profilePicture",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Teacher",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "person",
+      "otherEntityRelationshipName": "teacher",
+      "ownerSide": true,
+      "relationshipName": "person",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "subject",
+      "otherEntityRelationshipName": "teacher",
+      "relationshipName": "subjects",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "course",
+      "otherEntityRelationshipName": "teacher",
+      "relationshipName": "courses",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "teacher",
+      "relationshipName": "notifications",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "message",
+      "otherEntityRelationshipName": "teacher",
+      "relationshipName": "messages",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "recommendation",
+      "otherEntityRelationshipName": "teacher",
+      "relationshipName": "recommendations",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "school",
+      "otherEntityRelationshipName": "teachers",
+      "relationshipName": "school",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "feedback",
+      "otherEntityRelationshipName": "teacher",
+      "relationshipName": "feedback",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

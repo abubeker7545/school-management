@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212024",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "certification",
+  "fields": [
+    {
+      "fieldName": "certificateName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "issueDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "expirationDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "certificationUrl",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Certification",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "course",
+      "otherEntityRelationshipName": "certifications",
+      "relationshipName": "course",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

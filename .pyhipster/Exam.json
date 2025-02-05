@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212009",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "exam",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "maxScore",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Exam",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "grade",
+      "otherEntityRelationshipName": "exam",
+      "relationshipName": "grades",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "subject",
+      "otherEntityRelationshipName": "exams",
+      "relationshipName": "subject",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

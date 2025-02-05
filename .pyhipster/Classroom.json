@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212006",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "classroom",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "capacity",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "1"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Classroom",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "classSession",
+      "otherEntityRelationshipName": "classroom",
+      "relationshipName": "classSessions",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

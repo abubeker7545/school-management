@@ -1,0 +1,30 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212029",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "role_assignment",
+  "fields": [
+    {
+      "fieldName": "roleType",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "effectiveDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "expirationDate",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RoleAssignment",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

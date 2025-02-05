@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212033",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "subscription_d_set",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "renewalDate",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SubscriptionDSet",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "subscriptionDSet",
+      "relationshipName": "student",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "subscriptionPlan",
+      "otherEntityRelationshipName": "subscriptions",
+      "relationshipName": "subscriptionPlan",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

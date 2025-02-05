@@ -1,0 +1,50 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212019",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "quiz",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "totalQuestions",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "maxScore",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Quiz",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "question",
+      "otherEntityRelationshipName": "quiz",
+      "relationshipName": "questions",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "lesson",
+      "otherEntityRelationshipName": "quizzes",
+      "relationshipName": "lesson",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "submission",
+      "otherEntityRelationshipName": "quiz",
+      "relationshipName": "submission",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,73 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113211958",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "person",
+  "fields": [
+    {
+      "fieldName": "username",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "token",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "profilePicture",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bio",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Person",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "person",
+      "ownerSide": false,
+      "relationshipName": "student",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "teacher",
+      "otherEntityRelationshipName": "person",
+      "ownerSide": false,
+      "relationshipName": "teacher",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "administrator",
+      "otherEntityRelationshipName": "person",
+      "ownerSide": false,
+      "relationshipName": "administrator",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "userRole",
+      "otherEntityRelationshipName": "person",
+      "ownerSide": false,
+      "relationshipName": "userRole",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

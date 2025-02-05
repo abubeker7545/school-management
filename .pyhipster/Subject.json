@@ -1,0 +1,50 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212005",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "subject",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Subject",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "exam",
+      "otherEntityRelationshipName": "subject",
+      "relationshipName": "exams",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "assignment",
+      "otherEntityRelationshipName": "subject",
+      "relationshipName": "assignments",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "classSession",
+      "otherEntityRelationshipName": "subject",
+      "relationshipName": "classSessions",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "teacher",
+      "otherEntityRelationshipName": "subjects",
+      "relationshipName": "teacher",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

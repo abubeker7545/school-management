@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20241113212027",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "administrative_board",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creationDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "boardHead",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AdministrativeBoard",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "boardMember",
+      "otherEntityRelationshipName": "board",
+      "relationshipName": "members",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "administrator",
+      "otherEntityRelationshipName": "boards",
+      "ownerSide": true,
+      "relationshipName": "administrators",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}
