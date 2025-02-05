@@ -69,3 +69,4 @@ For further instructions on how to develop with PyHipster, have a look at the do
 [Python](https://www.python.org/)
 [Node.js](https://nodejs.org/)
 [Npm](https://www.npmjs.com/)
+# school-management
